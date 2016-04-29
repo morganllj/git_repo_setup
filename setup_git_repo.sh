@@ -1,6 +1,9 @@
 #!/bin/sh
 #
+# umask 002
+# mkdir /path/to/new/repo
 # cd /path/to/new/repo
+# chgrp <group name> .
 # git init --bare
 # /path/to/setup_git_repo.sh "description" email
 
