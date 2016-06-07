@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# use setup_git_repo.sh for the time being
+# abandoned in favor of setup_git_repo.sh
 
 git_dir=/git
 
