@@ -1,23 +1,23 @@
 #!/bin/sh
 #
-# assumption:
-# mkdir /path
-# chgrp groupname /path
-# chmod 2770 /path
-#
 # example usage:
-# create_git_repo.sh /git/techops/repo sso-admin@domain.tld
+# create_git_repo.sh groupname /git/techops/repo sso-admin@domain.tld
 
 if [ "x" == "x$2" ]; then
-    echo "usage: $0 /path/to/repo <email addr>"
+    echo "usage: $0 groupname /path/to/repo <email addr>"
     exit
 fi
 
-path=$1
-email=$2
+group=$1
+path=$2
+email=$3
 repo_name=`basename $path`
+umask 002
 
 mkdir $path
+chgrp $group $path
+chmod 2770 $path
+
 if [ $? -ne 0 ]; then
     exit
 fi
